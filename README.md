@@ -1,1 +1,36 @@
 # mysql_att
+
+create table clientes(
+	id_cliente int auto_increment primary key,
+    nome varchar(100) not null,
+    cpf varchar(14) not null,
+    telefone varchar(20) not null,
+    email varchar(100) not null,
+    cidade varchar(60) not null
+);
+
+create table produtos(
+	id_produto varchar(100) primary key,
+    nome_produto varchar(50) not null,
+    categoria varchar(50) not null,
+    marca varchar(50) not null,
+    preco decimal(10,2) not null,
+    quantidade_estoque int not null
+);
+
+create table funcionarios(
+	id_funcionario int auto_increment primary key,
+    nome varchar(100) not null,
+    cargo varchar(50) not null,
+    telefone varchar(20) not null,
+    salario decimal(10,2) not null,
+);
+
+
+create table vendas(
+	id_venda int auto_increment primary key,
+    id_cliente int not null,
+    id_funcionario int not null,
+    data_venda date,
+    valor_total decimal(10,2) not null
+);
