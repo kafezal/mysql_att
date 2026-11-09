@@ -31,8 +31,18 @@ create table vendas(
 	id_venda int auto_increment primary key,
     id_cliente int not null,
     id_funcionario int not null,
-    data_venda date,
+    data_venda date not null,
     valor_total decimal(10,2) not null
+	
+	constraint fk_vendas_cliente
+		foreign key (id_cliente)
+		reference clientes (id_cliente)
+		on delete cascade,
+
+	constrait fk_vendas_funcionario
+		foreign key (id_funcionario)
+		reference funcionarios (id_funcionario)
+		on delete restrict
 );
 
 clientes:
