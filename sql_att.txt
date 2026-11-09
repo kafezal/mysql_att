@@ -1,3 +1,5 @@
+criando as tabelas:
+
 create table clientes(
 	id_cliente int auto_increment primary key,
     nome varchar(100) not null,
@@ -32,3 +34,81 @@ create table vendas(
     data_venda date,
     valor_total decimal(10,2) not null
 );
+
+clientes:
+
+1°- nome: sandro aurélio
+	cpf: 111.111.111-11
+	telefone: (12)123456789
+	email: sandro.aurelio@gmail.com
+	cidade: belo horizonte
+2°- nome: alex da silva
+	cpf: 222.222.222-22
+	telefone: (12)987654321
+	email: silva.alex@gmail.com
+	cidade: são paulo
+3°- nome: paulo correia
+	cpf: 333.333.333-33
+	telefone: (12)123571113
+	email: correia.maneiro@hotmail.com
+	cidade: petrolina
+4°- nome: lucas monteiro
+	cpf: 444.444.444-44
+	telefone: (21)907856341
+	email: LucasMonteiro@gmail.com
+	cidade: juazeiro
+5°- nome: rosemary walter
+	cpf:555.555.555-55
+	telefone: (21)102938475
+	email: mary.walter@gmail.com
+	cidade: xique-xique
+
+produtos:
+
+1°- nome: notebook
+	categoria: computador/dispositivo móvel
+	marca: multilaser
+	preço: 1.200
+	quantidade: 5
+
+2°- nome: cartucho de impressora
+	categoria: Impressão e Gestão de Documentos
+	marca: HP
+	preço: 200
+	quantidade: 20
+
+3°- nome: ryzen 5500 3d
+	categoria: Hardware e Peças de Reposição
+	marca: AMD
+	preço:1.500
+	quantidade: 16
+
+4°- nome: cabo de xbox
+	categoria: Cabos, Adaptadores e Conectores
+	marca: Naovidia
+	preço: 90
+	quantidade: 2
+
+5°- nome: pendrive 1 tb
+	categoria: Armazenamento Externo e Portáteis
+	marca: sandisk
+	preço: 2.000
+	quantidade: 2
+
+6°- nome: hd 400 gb
+	categoria: Armazenamento Externo e Portáteis
+	marca: Kingston
+	preço: 730
+	quantidade: 4
+
+7°- nome: mouse gamer
+	categoria: Periféricos e Acessórios
+	marca: mancer
+	preço: 450.00
+	quantidade: 22
+
+8°- nome: filtro de linha
+	categoria: Cabos, Adaptadores e Conectores
+	marca: mancer
+	preço: 30
+	quantidade: 24
