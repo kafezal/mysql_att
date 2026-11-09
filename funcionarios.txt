@@ -1,17 +1,17 @@
 funcionarios 
 nome:Pedro 
 cargo:gerente de loja 
-telefone:87-8837-4966
+telefone:(87) 8837-4966
 salario: 3500
 
 
 
 nome: João pedro 
 cargo : vendendor 
-telefone:87-8856-2267
+telefone:(87) 8856-2267
 salario: 1800
 
 nome:murilo 
 cargo:Técnico de Suporte 
-telefone:87-8857-3962
+telefone:(87) 8857-3962
 salario:2300
