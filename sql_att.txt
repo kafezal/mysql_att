@@ -10,7 +10,7 @@ create table clientes(
 );
 
 create table produtos(
-	id_produto varchar(100) primary key,
+	id_produto int auto_increment primary key,
     nome_produto varchar(50) not null,
     categoria varchar(50) not null,
     marca varchar(50) not null,
@@ -75,7 +75,7 @@ clientes:
 
 produtos:
 
-1°- nome: notebook
+1°- nome: notebook maneiro
 	categoria: computador/dispositivo móvel
 	marca: multilaser
 	preço: 1.200
@@ -122,3 +122,29 @@ produtos:
 	marca: mancer
 	preço: 30
 	quantidade: 24
+
+
+inserindo dados dos clientes:
+
+insert into clientes (nome, cpf, telefone, email, cidade)
+values
+	('sandro aurélio', '111.111.111-11', '(12)123456789', 'sandro.aurelio@gmail.com', 'belo horizonte'),
+    ('alex da silva', '222.222.222-22', '(12)987654321', 'silva.alex@gmail.com', 'são paulo'),
+    ('paulo correia', '333.333.333-33', '(12)123571113', 'correia.maneiro@hotmail.com', 'petrolina'),
+    ('lucas monteiro', '444.444.444-44', '(21)907856341', 'LucasMonteiro@gmail.com', 'juazeiro'),
+    ('rosemary walter', '555.555.555-55', '(21)102938475', 'mary.walter@gmail.com', 'xique-xique')
+    ;
+
+inserindo dados dos produtos:
+
+insert into produtos (nome_produto, categoria, marca, preco, quantidade_estoque)
+values
+	('notebook maneiro', 'computador/dispositivo móvel', 'multilaser', '1.200', '5'),
+    ('cartucho de impressora', 'Impressão e Gestão de Documentos', 'HP', '200', '20'),
+    ('ryzen 5500 3d', 'Hardware e Peças de Reposição', 'AMD', '1.500', '16'),
+    ('cabo de xbox', 'Cabos, Adaptadores e Conectores', 'Naovidia', '90', '2'),
+    ('pendrive 1 tb', 'Armazenamento Externo e Portáteis', 'sandisk', '2.000', '2'),
+    ('hd 400 gb', 'Armazenamento Externo e Portáteis', 'Kingston', '730', '4'),
+    ('mouse gamer', 'Periféricos e Acessórios', 'mancer', '450.00', '22'),
+    ('filtro de linha', 'Cabos, Adaptadores e Conectores', 'mancer', '30', '24')
+    ;
