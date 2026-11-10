@@ -212,3 +212,9 @@ editando a cidade de um cliente:
 
 -rosemary passa de morar em xique-xique para ibura
 update clientes set cidade = 'ibura' where id_cliente = '5';
+
+produtos que não serão mais vendidos:
+
+-cabo de xbox e mouse gamer
+delete from produtos where id_produto = '4';
+delete from produtos where id_produto = '7';
