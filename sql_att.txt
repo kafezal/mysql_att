@@ -221,11 +221,20 @@ delete from produtos where id_produto = '7';
 
 consulta no banco de dados:
 
+1-listar clientes:
+SELECT nome FROM clientes;
+
 2- listar os produtos
 select nome_produto from produtos;
 
+3-exibir produtos superiores a 500 reais
+SELECT nome_produto FROM produtos WHERE preco > 500;
+
 4-listar os funcionarios:
 select nome from funcionarios;
+
+5-exibir as vendas realizadas:
+SELECT * FROM vendas;
 
 6-listar produtos quantidades menores que 10
 select nome_produto from produtos where quantidade_estoque < 10;
