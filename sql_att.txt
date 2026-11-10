@@ -191,3 +191,5 @@ update clientes set telefone = '(90)400289220' where id_cliente = '2';
 
 editando o o preço de dois produtos:
 
+o pendrive de 1 tb passa de 2000 para 2500 reais
+update produtos set preco = '2500' where id_produto = '5';
