@@ -32,16 +32,16 @@ create table vendas(
     id_cliente int not null,
     id_funcionario int not null,
     data_venda date not null,
-    valor_total decimal(10,2) not null
+    valor_total decimal(10,2) not null,
 	
 	constraint fk_vendas_cliente
 		foreign key (id_cliente)
-		reference clientes (id_cliente)
+		references clientes (id_cliente)
 		on delete cascade,
 
-	constrait fk_vendas_funcionario
+	constraint fk_vendas_funcionario
 		foreign key (id_funcionario)
-		reference funcionarios (id_funcionario)
+		references funcionarios (id_funcionario)
 		on delete restrict
 );
 
@@ -173,3 +173,21 @@ values
     ('João pedro', 'vendedor ', '(87) 8856-2267', '1800'),
     ('murilo', 'Técnico de Suporte', '(87) 8857-3962', '2300')
     ;
+
+inserindo dados da venda:
+
+insert into vendas (id_cliente, id_funcionario, data_venda, valor_total)
+values
+(1, 1, '2026-11-01', 1200.00), 
+(2, 2, '2026-11-03', 450.00),  
+(3, 3, '2026-11-05', 30.00),   
+(4, 3, '2026-11-07', 2000.00), 
+(5, 2, '2026-11-09', 400.00);
+
+editando o banco de dados:
+
+numero de telefone de Alex (12)987654321 passa ser (90)400289220
+update clientes set telefone = '(90)400289220' where id_cliente = '2';
+
+editando o o preço de dois produtos:
+
