@@ -1,4 +1,4 @@
-# mysql_att
+criando as tabelas:
 
 create table clientes(
 	id_cliente int auto_increment primary key,
@@ -10,7 +10,7 @@ create table clientes(
 );
 
 create table produtos(
-	id_produto varchar(100) primary key,
+	id_produto int auto_increment primary key,
     nome_produto varchar(50) not null,
     categoria varchar(50) not null,
     marca varchar(50) not null,
@@ -31,6 +31,210 @@ create table vendas(
 	id_venda int auto_increment primary key,
     id_cliente int not null,
     id_funcionario int not null,
-    data_venda date,
-    valor_total decimal(10,2) not null
+    data_venda date not null,
+    valor_total decimal(10,2) not null,
+	
+	constraint fk_vendas_cliente
+		foreign key (id_cliente)
+		references clientes (id_cliente)
+		on delete cascade,
+
+	constraint fk_vendas_funcionario
+		foreign key (id_funcionario)
+		references funcionarios (id_funcionario)
+		on delete restrict
 );
+
+clientes:
+
+1°- nome: sandro aurélio
+	cpf: 111.111.111-11
+	telefone: (12)123456789
+	email: sandro.aurelio@gmail.com
+	cidade: belo horizonte
+2°- nome: alex da silva
+	cpf: 222.222.222-22
+	telefone: (12)987654321
+	email: silva.alex@gmail.com
+	cidade: são paulo
+3°- nome: paulo correia
+	cpf: 333.333.333-33
+	telefone: (12)123571113
+	email: correia.maneiro@hotmail.com
+	cidade: petrolina
+4°- nome: lucas monteiro
+	cpf: 444.444.444-44
+	telefone: (21)907856341
+	email: LucasMonteiro@gmail.com
+	cidade: juazeiro
+5°- nome: rosemary walter
+	cpf:555.555.555-55
+	telefone: (21)102938475
+	email: mary.walter@gmail.com
+	cidade: xique-xique
+
+produtos:
+
+1°- nome: notebook maneiro
+	categoria: computador/dispositivo móvel
+	marca: multilaser
+	preço: 1.200
+	quantidade: 5
+
+2°- nome: cartucho de impressora
+	categoria: Impressão e Gestão de Documentos
+	marca: HP
+	preço: 200
+	quantidade: 20
+
+3°- nome: ryzen 5500 3d
+	categoria: Hardware e Peças de Reposição
+	marca: AMD
+	preço:1.500
+	quantidade: 16
+
+4°- nome: cabo de xbox
+	categoria: Cabos, Adaptadores e Conectores
+	marca: Naovidia
+	preço: 90
+	quantidade: 2
+
+5°- nome: pendrive 1 tb
+	categoria: Armazenamento Externo e Portáteis
+	marca: sandisk
+	preço: 2.000
+	quantidade: 2
+
+6°- nome: hd 400 gb
+	categoria: Armazenamento Externo e Portáteis
+	marca: Kingston
+	preço: 730
+	quantidade: 4
+
+7°- nome: mouse gamer
+	categoria: Periféricos e Acessórios
+	marca: mancer
+	preço: 450.00
+	quantidade: 22
+
+8°- nome: filtro de linha
+	categoria: Cabos, Adaptadores e Conectores
+	marca: mancer
+	preço: 30
+	quantidade: 24
+
+funcionários:
+
+nome: Pedro 
+cargo: gerente de loja 
+telefone: (87) 8837-4966
+salario: 3500
+
+nome: João pedro 
+cargo : vendendor 
+telefone:(87) 8856-2267
+salario: 1800
+
+nome: murilo 
+cargo: Técnico de Suporte 
+telefone: (87) 8857-3962
+salario: 2300
+
+inserindo dados dos clientes:
+
+insert into clientes (nome, cpf, telefone, email, cidade)
+values
+	('sandro aurélio', '111.111.111-11', '(12)123456789', 'sandro.aurelio@gmail.com', 'belo horizonte'),
+    ('alex da silva', '222.222.222-22', '(12)987654321', 'silva.alex@gmail.com', 'são paulo'),
+    ('paulo correia', '333.333.333-33', '(12)123571113', 'correia.maneiro@hotmail.com', 'petrolina'),
+    ('lucas monteiro', '444.444.444-44', '(21)907856341', 'LucasMonteiro@gmail.com', 'juazeiro'),
+    ('rosemary walter', '555.555.555-55', '(21)102938475', 'mary.walter@gmail.com', 'xique-xique')
+    ;
+
+inserindo dados dos produtos:
+
+insert into produtos (nome_produto, categoria, marca, preco, quantidade_estoque)
+values
+	('notebook maneiro', 'computador/dispositivo móvel', 'multilaser', '1.200', '5'),
+    ('cartucho de impressora', 'Impressão e Gestão de Documentos', 'HP', '200', '20'),
+    ('ryzen 5500 3d', 'Hardware e Peças de Reposição', 'AMD', '1.500', '16'),
+    ('cabo de xbox', 'Cabos, Adaptadores e Conectores', 'Naovidia', '90', '2'),
+    ('pendrive 1 tb', 'Armazenamento Externo e Portáteis', 'sandisk', '2.000', '2'),
+    ('hd 400 gb', 'Armazenamento Externo e Portáteis', 'Kingston', '730', '4'),
+    ('mouse gamer', 'Periféricos e Acessórios', 'mancer', '450.00', '22'),
+    ('filtro de linha', 'Cabos, Adaptadores e Conectores', 'mancer', '30', '24')
+    ;
+
+inserindo dados dos funcionários:
+
+insert into funcionarios (nome, cargo, telefone, , salario)
+values
+	('Pedro', 'gerente de loja', '(87) 8837-4966', '3500'),
+    ('João pedro', 'vendedor ', '(87) 8856-2267', '1800'),
+    ('murilo', 'Técnico de Suporte', '(87) 8857-3962', '2300')
+    ;
+
+inserindo dados da venda:
+
+insert into vendas (id_cliente, id_funcionario, data_venda, valor_total)
+values
+(1, 1, '2026-11-01', 1200.00), 
+(2, 2, '2026-11-03', 450.00),  
+(3, 3, '2026-11-05', 30.00),   
+(4, 3, '2026-11-07', 2000.00), 
+(5, 2, '2026-11-09', 400.00);
+
+editando o banco de dados:
+
+numero de telefone de Alex (12)987654321 passa ser (90)400289220
+update clientes set telefone = '(90)400289220' where id_cliente = '2';
+
+editando o o preço de dois produtos:
+
+-o pendrive de 1 tb passa de 2000 para 2500 reais
+update produtos set preco = '2500' where id_produto = '5';
+-o cartucho de impressora passa de 200 para 135 reais
+update produtos set preco = '135' where id_produto = '2';
+
+editando um cargo de um funcionário:
+
+-o funcionário joão pedro passa a ser de vendedor para agente de marketing
+update funcionarios set cargo = 'agente de marketing' where id_funcionario = '2';
+
+editando o estoque de dois produtos:
+
+-o hd 400 gb passa de 4 a ter 2
+update produtos set quantidade_estoque = '2' where id_produto = '6';
+-o filtro de linha passa de 24 a ter 20
+update produtos set quantidade_estoque = '20' where id_produto = '8';
+
+editando a cidade de um cliente:
+
+-rosemary passa de morar em xique-xique para ibura
+update clientes set cidade = 'ibura' where id_cliente = '5';
+
+produtos que não serão mais vendidos:
+
+-cabo de xbox e mouse gamer
+delete from produtos where id_produto = '4';
+delete from produtos where id_produto = '7';
+
+consulta no banco de dados:
+
+1-listar clientes:
+SELECT nome FROM clientes;
+
+2- listar os produtos
+select nome_produto from produtos;
+
+3-exibir produtos superiores a 500 reais
+SELECT nome_produto FROM produtos WHERE preco > 500;
+
+4-listar os funcionarios:
+select nome from funcionarios;
+
+5-exibir as vendas realizadas:
+SELECT * FROM vendas;
+
+6-listar produtos quantidades menores que 10
+select nome_produto from produtos where quantidade_estoque < 10;
